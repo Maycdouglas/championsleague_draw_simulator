@@ -1,5 +1,6 @@
 import Clube from './clube.js'
 import Pote from './pote.js'
+import Partida from './partida.js'
 
 export default function ChampionsLeague(temporada) {
     this.temporada = temporada
@@ -25,10 +26,12 @@ export default function ChampionsLeague(temporada) {
 
         for(let poteAdversario of this.potes) {
             let adversario = sortearPartidasPote(poteAdversario.clubes,clube)
-            console.log("ADVERSÁRIO: ",adversario)
+            const partida = new Partida(clube,adversario,this)
+            clube.adicionarPartida(partida)
         }
         
         clube.isComplete = true
+        console.log(clube.partidas)
         return clubesNaoSorteados[indiceSorteado]
     }
 

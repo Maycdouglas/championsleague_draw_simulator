@@ -3,6 +3,13 @@ export default function Clube(nome,pais, pote) {
     this.pais = pais
     this.pote = pote
     this.isComplete = false
-    this.partidas = [] // Deve receber um vetor com o clube e se é em casa ou fora
+    this.partidas = []
+    this.qntdPartidas = 0
 
+    this.adicionarPartida = function(partida) {
+        this.partidas.push(partida)
+        if(this.qntdPartidas < 8)
+            this.qntdPartidas++
+    }
+    
 }
